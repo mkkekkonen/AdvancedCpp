@@ -24,11 +24,14 @@ endif()
 
 find_package(GTest)
 if(GTEST_FOUND)
-set(Gtest_FOUND TRUE)
+set(GTest_FOUND TRUE)
 endif()
 if(GTest_FOUND)
 include(GoogleTest)
 endif()
+
+enable_testing()
+add_subdirectory(tests)
 
 include(CheckIncludeFiles)
 CHECK_INCLUDE_FILES(sys/prctl.h HAVE_SYS_PRCTL_H)
@@ -37,6 +40,8 @@ find_package(Threads REQUIRED)
 
 add_executable(CxxTemplate
   src/CxxTemplate.cpp  
+  src/NewClass.cpp
+  src/SumFunc.cpp
 )
 
 target_link_libraries(CxxTemplate
