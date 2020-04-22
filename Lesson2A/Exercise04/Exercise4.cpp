@@ -9,7 +9,7 @@
 #include <iostream>
 #include <string>
 
-enum Apple {
+enum class Apple {
     RedDelicious,
     GoldenDelicious,
     Gala,
@@ -17,7 +17,7 @@ enum Apple {
     GrannySmith
 };
 
-enum Orange {
+enum class Orange {
     Navel,
     Valencia,
     Hamlin,
@@ -33,27 +33,27 @@ int main(int argc, char**argv)
 {
     std::cout << "\n\n------ Exercise 4 ------\n";
 
-    Apple apple = RedDelicious;
-    Orange orange{Hamlin};
+    Apple apple = Apple::RedDelicious;
+    Orange orange{Orange::Hamlin};
 
-    std::cout << "apple = " << apple << "\n";
-    std::cout << "orange = " << orange << "\n";
+    std::cout << "apple = " << static_cast<int>(apple) << "\n";
+    std::cout << "orange = " << static_cast<int>(orange) << "\n";
 
-    apple = Gala;
-    std::cout << "apple = " << apple << "\n";
+    apple = Apple::Gala;
+    std::cout << "apple = " << static_cast<int>(apple) << "\n";
 
-    if (apple == orange)
-    {
-        std::cout << "apple == orange" << "\n";
-        orange = Valencia;
-    }
-    else
-    {
-        std::cout << "apple != orange" << "\n";
-    }
+//    if (apple == orange)
+//    {
+//        std::cout << "apple == orange" << "\n";
+//        orange = Orange::Valencia;
+//    }
+//    else
+//    {
+//        std::cout << "apple != orange" << "\n";
+//    }
 
-    printOrange(orange);
-    printOrange(apple);
+    printOrange(static_cast<int>(orange));
+//    printOrange(apple);
 
     std::cout << "Complete.\n";
     return 0;

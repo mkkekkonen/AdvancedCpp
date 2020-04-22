@@ -13,9 +13,15 @@
 class Fraction
 {
 public:
-    Fraction()
+    Fraction(int numerator) : m_numerator(numerator), m_denominator{1}
     {
+    }
 
+    Fraction(int numerator, int denominator) : Fraction(numerator)
+    {
+    	auto factor = std::gcd(numerator, denominator);
+		m_numerator /= factor;
+		m_denominator = denominator / factor;
     }
 
     int getNumerator() const
@@ -37,7 +43,7 @@ int main(int argc, char**argv)
 {
     std::cout << "\n\n------ Exercise 5 ------\n";
 
-    Fraction fraction;
+    Fraction fraction{3, 2};
 
     std::cout << "fraction = " << fraction.getNumerator() << "/" << fraction.getDenominator() << "\n";
 
