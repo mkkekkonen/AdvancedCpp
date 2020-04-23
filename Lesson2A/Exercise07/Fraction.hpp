@@ -8,7 +8,7 @@
 #pragma once
 #include <iostream>
 
-#define EXERCISE7_STEP    1
+#define EXERCISE7_STEP    23
 
 class Fraction
 {
@@ -65,5 +65,6 @@ inline Fraction operator/(const Fraction& lhs, const Fraction& rhs)
 
 inline std::ostream& operator<< (std::ostream &out, const Fraction &rhs)
 {
-    return out;
+	Fraction tmp(rhs);
+    return out << rhs.getNumerator() << " / " << rhs.getDenominator();
 }

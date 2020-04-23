@@ -29,20 +29,37 @@ Fraction::Fraction(int numerator, int denominator) : m_numerator{numerator}, m_d
 
 Fraction& Fraction::operator*=(const Fraction& rhs)
 {
+    Fraction tmp(m_numerator*rhs.m_numerator, m_denominator*rhs.m_denominator);
+    *this = tmp;
     return *this;
 }
 
 Fraction& Fraction::operator+=(const Fraction& rhs)
 {
+	Fraction tmp(
+		(m_numerator * rhs.m_denominator) + (rhs.m_numerator * m_denominator),
+		m_denominator * rhs.m_denominator
+	);
+	*this = tmp;
     return *this;
 }
 
 Fraction& Fraction::operator-=(const Fraction& rhs)
 {
+	Fraction tmp(
+		(m_numerator * rhs.m_denominator) - (rhs.m_numerator * m_denominator),
+		m_denominator * rhs.m_denominator
+	);
+	*this = tmp;
     return *this;
 }
 
 Fraction& Fraction::operator/=(const Fraction& rhs)
 {
+	Fraction tmp(
+		m_numerator * rhs.m_denominator,
+		m_denominator * rhs.m_numerator
+	);
+	*this = tmp;
     return *this;
 }
