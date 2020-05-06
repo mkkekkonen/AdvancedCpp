@@ -8,10 +8,12 @@
 include(GoogleTest)
 
 SET(SRC_FILES 
-    ../point3d.cpp)
+    ../point3d.cpp
+    ../matrix3d.cpp)
 
 SET(TEST_FILES 
-    point3dTests.cpp)
+    point3dTests.cpp
+    matrix3dTests.cpp)
 
 add_executable(graphicstests 
     ${SRC_FILES}

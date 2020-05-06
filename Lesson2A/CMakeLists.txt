@@ -20,6 +20,8 @@ if(POLICY CMP0074)
   cmake_policy(SET CMP0074 NEW)
 endif()
 
+add_executable(Activity1 Activity01/main.cpp)
+
 # ------------------------------------------------------------------
 # Exercise 1
 # ------------------------------------------------------------------
@@ -58,4 +60,5 @@ find_package(GTest)
 
 enable_testing()
 add_subdirectory(Exercise07/tests)
+add_subdirectory(Activity01/tests)
 
