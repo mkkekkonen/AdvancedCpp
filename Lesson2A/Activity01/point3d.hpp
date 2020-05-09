@@ -14,11 +14,14 @@ class Point3d
 {
 public:
 	Point3d();
-	Point3d(int values[4]);
+	Point3d(int x, int y, int z, int w);
 	virtual ~Point3d();
 	int operator()(int i);
 private:
-	int values[4];
+	int x = 0;
+	int y = 0;
+	int z = 0;
+	int w = 1;
 };
 
 

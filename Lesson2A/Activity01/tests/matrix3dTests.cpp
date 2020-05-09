@@ -2,9 +2,13 @@
 
 #include "../matrix3d.hpp"
 
+#define TEST 1
+
 class Matrix3dTest : public ::testing::Test
 {
 };
+
+#if TEST
 
 TEST_F(Matrix3dTest, DefaultIdentity)
 {
@@ -26,13 +30,12 @@ TEST_F(Matrix3dTest, DefaultIdentity)
 
 TEST_F(Matrix3dTest, SuppliedData)
 {
-	int values[4][4] = {
-			{1, 2, 3, 4},
-			{5, 6, 7, 8},
-			{9, 10, 11, 12},
-			{13, 14, 15, 16}
+	Matrix3d matrix{
+		{1, 2, 3, 4},
+		{5, 6, 7, 8},
+		{9, 10, 11, 12},
+		{13, 14, 15, 16}
 	};
-	Matrix3d matrix{values};
 
 	ASSERT_EQ(matrix(0, 0), 1);
 	ASSERT_EQ(matrix(0, 1), 2);
@@ -43,3 +46,5 @@ TEST_F(Matrix3dTest, SuppliedData)
 	ASSERT_EQ(matrix(2, 3), 12);
 	ASSERT_EQ(matrix(3, 3), 16);
 }
+
+#endif

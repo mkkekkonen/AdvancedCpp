@@ -25,8 +25,7 @@ TEST_F(Point3dTest, DefaultConstructor)
 
 TEST_F(Point3dTest, SuppliedData)
 {
-	int values[] = {1, 2, 3, 4};
-	Point3d point3d{values};
+	Point3d point3d{1, 2, 3, 4};
 
     ASSERT_EQ(point3d(0), 1);
     ASSERT_EQ(point3d(1), 2);
