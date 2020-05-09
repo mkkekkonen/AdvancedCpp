@@ -9,10 +9,13 @@
 #include <iostream>
 #include <vector>
 
-void printVector(std::vector<int>& ary)
+using IntVector = std::vector<int>;
+using IntVectorIter = std::vector<int>::iterator;
+
+void printVector(IntVector& ary)
 {
     std::cout << "Array is : ";
-    for(std::vector<int>::iterator it{ary.begin()}; it != ary.end() ; ++it)
+    for(IntVectorIter it{ary.begin()}; it != ary.end() ; ++it)
     {
         std::cout << *it << ",";
     }
@@ -23,7 +26,7 @@ int main(int argc, char**argv)
 {
     std::cout << "\n\n------ Exercise 2 ------\n";
 
-    std::vector<int> ary = {2,4,6,1,3,5};
+    IntVector ary = {2,4,6,1,3,5};
 
     printVector(ary);
 
