@@ -20,7 +20,7 @@ TEST_F(StackTest, DefaultConstructorInitsEmpty)
     acpp::Stack<int>  stack;
 
 #if EXERCISE4_STEP >= 10
-    ASSERT_FALSE(stack.empty());
+    ASSERT_TRUE(stack.empty());
 #endif
 }
 
