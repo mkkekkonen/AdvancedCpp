@@ -10,7 +10,7 @@
 #include <vector>
 #include "contains.hpp"
 
-// #define ACTIVITY1
+#define ACTIVITY1
 
 
 int main()

@@ -2,6 +2,26 @@
 #include "monitor.h"
 #include <cstdio>
 
+class File {
+public:
+	File(const char* name, const char* access) {
+		m_file = fopen(name, access);
+		if (m_file == nullptr) {
+			throw std::ios_base::failure("Failed to open file");
+		}
+	}
+
+	~File() {
+		fclose(m_file);
+	}
+
+	operator FILE*() {
+		return m_file;
+	}
+private:
+	FILE* m_file{};
+};
+
 void LeakPointers()
 {
     char* memory[5] {};
@@ -14,10 +34,10 @@ void LeakPointers()
 
 void LeakFiles()
 {
-    FILE* fh1{fopen("HelloB1.txt", "w")};
+    File fh1{"HelloB1.txt", "w"};
     fprintf(fh1, "Hello B2\n");
 
-    FILE* fh2{fopen("HelloB2.txt", "w")};
+    File fh2{"HelloB2.txt", "w"};
     fprintf(fh2, "Hello B1\n");
 }
 

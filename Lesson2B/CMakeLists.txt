@@ -39,6 +39,9 @@ add_executable(Exercise3 Exercise03/Exercise3.cpp)
 # Exercise 4
 # ------------------------------------------------------------------
 add_executable(Exercise4 Exercise04/Exercise4.cpp)
+
+add_executable(Activity1 Activity01/main.cpp)
+
 find_package(GTest)
 
 enable_testing()
