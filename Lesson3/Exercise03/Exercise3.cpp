@@ -22,12 +22,27 @@ private:
 	FILE* m_file{};
 };
 
+class CharPointer {
+public:
+	~CharPointer() {
+		delete [] m_memory;
+	}
+
+	void allocate(size_t size) {
+		m_memory = new char[size];
+	}
+
+	operator char*() { return m_memory; }
+private:
+	char* m_memory{};
+};
+
 void LeakPointers()
 {
-    char* memory[5] {};
+    CharPointer memory[5];
     for (auto i{0} ; i<5 ; i++)
     {
-        memory[i] = new char[20];
+        memory[i].allocate(20);
         std::cout << "allocated 20 bytes @ " << (void *)memory[i] << "\n";
     }
 }
